@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - News Insights</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="background"></div>
+    <div class="stars" id="stars"></div>
+    <div class="floating-orbs">
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+        <div class="orb orb3"></div>
+    </div>
+
+    <!-- Back to Home -->
+    <a href="{% url 'home' %}" class="b1ack-home">
+       
+        Back to Home
+    </a>
+
+    <!-- Main Container -->
+    <div class="login-container">
+        <!-- Left Side - Branding -->
+        <div class="branding-side">
+            <div class="logo-section">
+                <div class="main-logo">NI</div>
+                <h1 class="brand-title">News Insights</h1>
+                <p class="brand-subtitle">Your intelligent companion for unbiased, concise news analysis powered by cutting-edge AI technology.</p>
+            </div>
+
+            <div class="feature-highlights">
+                <div class="highlight-item">
+                    <div class="highlight-icon">🚀</div>
+                    <span>Lightning-fast article summarization</span>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon">🎯</div>
+                    <span>Advanced bias detection algorithms</span>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon">🛡️</div>
+                    <span>Secure and private analysis</span>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon">📱</div>
+                    <span>Access anywhere, anytime</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side - Login Form -->
+        <div class="form-side">
+            <div class="login-form-container">
+                <div class="form-header">
+                    <h2 class="form-title">Welcome Back</h2>
+                    <p class="form-subtitle">Sign in to continue your journey towards unbiased news</p>
+                </div>
+
+                <form id="loginForm" method="POST">
+                {% csrf_token %}    
+                    <div class="form-group">
+                        <label class="form-label" for="email">Username</label>
+                        <input 
+                            type="text" 
+                            id="email" 
+                            name="username" 
+                            class="form-input" 
+                            placeholder="Enter your email"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="password">Password</label>
+                        <div style="position: relative;">
+                            <input 
+                                type="password" 
+                                id="password" 
+                                name="password" 
+                                class="form-input" 
+                                placeholder="Enter your password"
+                                required
+                            >
+                            <button type="button" class="password-toggle" onclick="togglePassword()">👁️</button>
+                        </div>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="remember-me">
+                            <input type="checkbox" class="checkbox" name="remember">
+                            <span>Remember me</span>
+                        </label>
+                        <a href="#" class="forgot-password">Forgot Password?</a>
+                    </div>
+
+                    <button type="submit" class="login-button" id="loginBtn">
+                        Sign In
+                    </button>
+                </form>
+
+                <div class="divider">
+                    <span>or continue with</span>
+                </div>
+
+                <div class="social-login">
+                    <a href="#" class="social-button">
+                        <span>🔍</span>
+                        Google
+                    </a>
+                    <a href="#" class="social-button">
+                        <span>📘</span>
+                        Facebook
+                    </a>
+                </div>
+
+                <div class="signup-link">
+                    Don't have an account? <a href="/signup">Sign up here</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% if messages %}
+<div id="popup" class="popup">
+    {% for message in messages %}
+        <div class="popup-message {{ message.tags }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+</div>
+{% endif %}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const popup = document.getElementById("popup");
+    if (popup) {
+        setTimeout(() => {
+            popup.style.display = "none";
+        }, 3000); // hide after 3 sec
+    }
+});
+ </script>
+
+
+</body>
+</html>
