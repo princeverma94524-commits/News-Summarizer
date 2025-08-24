@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-cuho4#94fg)jqrzvm!@yg9ft^32zxtb!t=kmqha$$%%_0og4=5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['news-summarizer-5yuw.onrender.com']
 
 
 # Application definition
@@ -134,4 +134,5 @@ MESSAGE_TAGS = {
     messages.WARNING: 'warning',
     messages.INFO: 'info',
 }
+
 
