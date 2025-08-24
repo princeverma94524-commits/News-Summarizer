@@ -30,10 +30,7 @@ SECRET_KEY = 'django-insecure-cuho4#94fg)jqrzvm!@yg9ft^32zxtb!t=kmqha$$%%_0og4=5
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '*.onrender.com',
-    'news-summarizer-5yuw.onrender.com',
-    'news-summarizer-lr6o.onrender.com', 
-    'news-summarizer-4z2c.onrender.com',
+    '.onrender.com',
     'localhost',
     '127.0.0.1',
     '0.0.0.0'
@@ -146,4 +143,5 @@ MESSAGE_TAGS = {
     messages.WARNING: 'warning',
     messages.INFO: 'info',
 }
+
 
