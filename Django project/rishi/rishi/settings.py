@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+
+# Add this near the top after your imports
+PORT = int(os.environ.get('PORT', 8000))
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -124,7 +128,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
-
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATIC_URL = 'static/'
 STATICFILES_DIRS=[
     "demo_static"
@@ -142,7 +146,4 @@ MESSAGE_TAGS = {
     messages.WARNING: 'warning',
     messages.INFO: 'info',
 }
-
-
-
 
